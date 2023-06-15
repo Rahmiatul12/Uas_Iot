@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -319.61, "left": 14.02, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -234.34,
+      "left": 131.15,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -310.28,
+      "left": 155.35,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -333.03, "left": 231.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "r1:1", "led1:A", "red", [ "h0" ] ],
+    [ "esp:D2", "r1:2", "red", [ "h0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
